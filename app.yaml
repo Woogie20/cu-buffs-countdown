@@ -3,6 +3,6 @@ handlers:
   - url: /
     static_files: index.html
     upload: index.html
-  - url: /
-    static_files: buffs-logo.jpg
-    upload: buffs-logo.jpg
+  - url: /buffs-logo.png
+    static_files: buffs-logo.png
+    upload: buffs-logo.png

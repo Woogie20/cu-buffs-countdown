@@ -46,12 +46,13 @@
   <div id="countdown">Loading...</div>
   <img src="buffs-logo.jpg" alt="CU Buffs Logo">
   <script>
-    // Set the game time explicitly (Saturday, 3:30 PM EST = 8:30 PM UTC)
-    const gameTime = new Date(Date.UTC(2024, 10, 25, 20, 30, 0)); // Month is 0-indexed
+    // Set the game time explicitly in EST (UTC-5)
+    const gameTimeEST = new Date(2024, 10, 25, 15, 30, 0); // 2024-11-25 at 3:30 PM EST
+    const gameTimeUTC = new Date(gameTimeEST.getTime() + (5 * 60 * 60 * 1000)); // Convert EST to UTC
 
     function updateCountdown() {
       const now = new Date();
-      const diff = gameTime - now;
+      const diff = gameTimeUTC - now;
       if (diff <= 0) {
         document.getElementById('countdown').innerText = "It's game time!";
         return;
