@@ -51,28 +51,34 @@
   <img src="buffs-logo.jpg" alt="CU Buffs Logo">
 
   <script>
-    // Set the date we're counting down to for the Buffs game (Saturday, November 25, 2024 at 3:30 PM EST)
-    var countDownDate = new Date("Nov 25, 2024 15:30:00 EST").getTime();
+    // Set the target date and time for the CU Buffs game (Saturday, November 23, 2024, 3:30 PM EST)
+    var targetDate = new Date(Date.UTC(2024, 10, 23, 20, 30, 0)); // Nov 23, 2024 at 3:30 PM EST (UTC-5)
 
-    // Update the count down every 1 second for the Buffs game
+    // Update the countdown every 1 second
     var x = setInterval(function() {
 
-      // Get today's date and time
-      var now = new Date().getTime();
-    
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
-    
+      // Get the current local time in the browser
+      var now = new Date();
+
+      // Get the time zone offset in minutes (current time zone difference with UTC)
+      var timeZoneOffset = now.getTimezoneOffset(); // in minutes (UTC is ahead of local time)
+      
+      // Adjust the target time to match the local time zone offset
+      var adjustedTargetDate = new Date(targetDate.getTime() + (timeZoneOffset * 60000));  // Convert minutes to milliseconds
+      
+      // Find the distance between now and the adjusted target date
+      var distance = adjustedTargetDate - now;
+
       // Time calculations for days, hours, minutes, and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
+
       // Output the result in an element with id="countdown"
       document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-    
-      // If the count down is over, write some text 
+
+      // If the count down is over, display "It's game time!"
       if (distance < 0) {
         clearInterval(x);
         document.getElementById("countdown").innerHTML = "It's game time!";
