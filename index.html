@@ -6,32 +6,47 @@
   <title>CU Buffs Countdown</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #000000, #ffcc00);
+      color: white;
       text-align: center;
-      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
     h1 {
-      margin-top: 20px;
+      font-size: 3rem;
+      margin: 0.5rem 0;
+      text-shadow: 2px 2px 8px #000000;
     }
     #countdown {
-      font-size: 48px;
+      font-size: 4rem;
       font-weight: bold;
-      margin: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     img {
-      margin-top: 20px;
-      width: 200px;
-      height: auto;
+      margin-top: 30px;
+      max-width: 200px;
+      border: 3px solid #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
 <body>
-  <h1>Time Until Game</h1>
-  <p>Until the next Buffs game!</p>
-  <div id="countdown"></div>
-  <img src="buffs-logo.jpg" alt="CU Buffs Logo">
+  <h1>Time Until the Next Buffs Game!!!</h1>
+  <div id="countdown">Loading...</div>
+  <img src="buffs-logo.png" alt="CU Buffs Logo">
   <script>
-    const gameTime = new Date("2024-11-25T18:00:00Z"); // Example game time (UTC)
+    const gameTime = new Date("2024-11-23T20:30:00Z"); // Game time: Saturday, 3:30 PM EST (UTC-5)
     function updateCountdown() {
       const now = new Date();
       const diff = gameTime - now;
