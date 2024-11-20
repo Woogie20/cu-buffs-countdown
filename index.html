@@ -46,7 +46,8 @@
   <div id="countdown">Loading...</div>
   <img src="buffs-logo.jpg" alt="CU Buffs Logo">
   <script>
-    const gameTime = new Date("2024-11-23T20:30:00Z"); // Game time: Saturday, 3:30 PM EST (UTC-5)
+    // Set the game time (Saturday, 3:30 PM EST = 8:30 PM UTC)
+    const gameTime = new Date("2024-11-25T20:30:00Z");
     function updateCountdown() {
       const now = new Date();
       const diff = gameTime - now;
